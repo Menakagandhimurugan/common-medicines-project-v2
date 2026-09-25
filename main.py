@@ -12,7 +12,7 @@ DATA_DIR = os.path.join(os.getcwd(), "data")
 os.makedirs(DATA_DIR, exist_ok=True)
 
 
-# --- INITIALIZATION FUNCTION ---
+# --- INITIALIZATION FUNCTION --
 @st.cache_resource
 def initialize_rag_system():
     if not os.path.exists(DATA_DIR) or not os.listdir(DATA_DIR):
