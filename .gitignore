@@ -1,0 +1,9 @@
+# Hide your secret Groq API keys and configurations
+.streamlit/
+
+# Hide PyCharm internal background settings folders
+.idea/
+
+# Hide temporary Python cache files
+__pycache__/
+*.pyc
