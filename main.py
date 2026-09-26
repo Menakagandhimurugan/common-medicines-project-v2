@@ -152,7 +152,14 @@ with input_container:
         user_query = st.chat_input("Type your question about medications...")
 
 # 5. Process the conversational pipeline if input text is captured
+# Process the conversational pipeline if input text is captured
 if user_query:
+    # SAFETY GUARD: If the browser cache ever drops 'messages', recreate it instantly!
+    if "messages" not in st.session_state:
+        st.session_state.messages = [
+            {"role": "assistant", "content": "Hello! I am Chitti, your local medical reference assistant. How can I help you navigate your documentation today?"}
+        ]
+
     # Display user input bubble
     st.session_state.messages.append({"role": "user", "content": user_query})
     with st.chat_message("user"):
