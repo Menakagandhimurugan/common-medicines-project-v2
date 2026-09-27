@@ -1,9 +1,13 @@
 import os
+
 import streamlit as st
 from llama_index.readers.file import PyMuPDFReader, ImageReader
 from llama_index.core import SimpleDirectoryReader, VectorStoreIndex, Settings
 from llama_index.llms.groq import Groq
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+
+# FORCE BYPASS NLTK SECURITY ENGINE RESTRICTION LOCKS UP ON CLOUD HOSTS 👇
+os.environ["NLTK_PATHSEC_DISABLED"] = "1"
 
 # --- APP CONFIGURATION ---
 st.set_page_config(page_title="Medical Reference AI Chatbot", page_icon="🩺", layout="centered")
